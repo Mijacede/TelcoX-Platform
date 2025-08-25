@@ -10,7 +10,7 @@ docker-compose up --build
 
 ## Verificar que los servicios estén activos:
    docker-compose ps
-   *Debería mostrar ambos contenedores (backend y frontend) en estado "Running"*
+*Debería mostrar ambos contenedores (backend y frontend) en estado "Running"*
 
 ## Probar la aplicación:
    - Abrir http://localhost:4200
