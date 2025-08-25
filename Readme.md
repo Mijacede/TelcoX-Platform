@@ -4,7 +4,9 @@
 ```bash
 git clone https://github.com/tu-usuario/telcox-platform.git
 ```
+```bash
 cd telcox-platform
+```
 
 # Ejecutar con Docker
 ```bash
