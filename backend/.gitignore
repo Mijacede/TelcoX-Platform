@@ -1,0 +1,24 @@
+# Flask instance folder
+instance/
+
+# Coverage report
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+
+# Database
+*.db
+*.sqlite3
+
+# Archivos de desarrollo
+.python-version
+
+# Distribuciones
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Unit test / coverage reports
+.tox/

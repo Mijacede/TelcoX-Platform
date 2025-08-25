@@ -1,0 +1,34 @@
+<div class="usage-container" *ngIf="usageData; else loadingOrError">
+  <h3>Consumo en Tiempo Real</h3>
+  
+  <div class="usage-card">
+    <h4>📊 Datos Móviles</h4>
+    <div class="progress">
+      <div class="progress-bar" 
+           [style.width.%]="calculatePercentage(usageData.data_usage.used, usageData.data_usage.total)">
+        {{ usageData.data_usage.used }} / {{ usageData.data_usage.total }} {{ usageData.data_usage.unit }}
+      </div>
+    </div>
+    <p>{{ calculatePercentage(usageData.data_usage.used, usageData.data_usage.total) | number:'1.0-0' }}% utilizado</p>
+  </div>
+
+  <div class="usage-card">
+    <h4>📞 Minutos de Llamadas</h4>
+    <div class="progress">
+      <div class="progress-bar" 
+           [style.width.%]="calculatePercentage(usageData.minutes_usage.used, usageData.minutes_usage.total)">
+        {{ usageData.minutes_usage.used }} / {{ usageData.minutes_usage.total }} {{ usageData.minutes_usage.unit }}
+      </div>
+    </div>
+    <p>{{ calculatePercentage(usageData.minutes_usage.used, usageData.minutes_usage.total) | number:'1.0-0' }}% utilizado</p>
+  </div>
+</div>
+
+<ng-template #loadingOrError>
+  <div class="alert alert-info" *ngIf="!errorMessage">
+    Cargando datos de consumo...
+  </div>
+  <div class="alert alert-danger" *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
+</ng-template>

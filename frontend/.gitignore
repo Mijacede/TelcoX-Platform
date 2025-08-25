@@ -1,0 +1,30 @@
+# Dependencias
+node_modules/
+
+# Build outputs
+dist/
+aot/
+build/
+
+# Cache
+.cache/
+.angular/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Coverage
+coverage/
+*.lcov
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Sistemas operativos
+.DS_Store
+Thumbs.db

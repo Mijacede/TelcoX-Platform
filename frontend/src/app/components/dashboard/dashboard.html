@@ -1,0 +1,45 @@
+<div class="dashboard-container">
+  <div class="header">
+    <h1>TelcoX - Plataforma de Autogestión</h1>
+  </div>
+
+  <div *ngIf="customerData; else loading" class="info-card">
+    <h2>Bienvenido, {{ customerData?.name }}</h2>
+    
+    <div class="balance-section">
+      <h3>Saldo Actual</h3>
+      <p [class.positive]="customerData.balance >= 0" 
+         [class.negative]="customerData.balance < 0" 
+         class="balance">
+        {{ customerData.balance | currency }}
+      </p>
+    </div>
+
+    <!-- Componente de consumo -->
+    <app-usage-display [customerId]="customerId"></app-usage-display>
+
+    <div class="invoice-info">
+      <h3>Última Factura</h3>
+      <p><strong>Fecha:</strong> {{ customerData.last_invoice.date }}</p>
+      <p><strong>Monto:</strong> {{ customerData.last_invoice.amount | currency }}</p>
+      <p><strong>Estado:</strong> 
+        <span [class.status-paid]="customerData.last_invoice.status === 'Pagada'"
+              [class.status-pending]="customerData.last_invoice.status === 'Pendiente'">
+          {{ customerData.last_invoice.status }}
+        </span>
+      </p>
+    </div>
+
+    <button class="btn" (click)="refreshData()">Actualizar Datos</button>
+  </div>
+
+  <ng-template #loading>
+    <div class="alert alert-info">
+      Cargando información del cliente...
+    </div>
+  </ng-template>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+</div>
