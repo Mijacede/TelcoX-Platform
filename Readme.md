@@ -2,6 +2,7 @@
 
 # Clonar repositorio
 git clone https://github.com/tu-usuario/telcox-platform.git
+
 cd telcox-platform
 
 # Ejecutar con Docker
